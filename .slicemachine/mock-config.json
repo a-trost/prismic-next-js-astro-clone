@@ -1,0 +1,38 @@
+{
+  "slices": {
+    "Hero": {
+      "default": {
+        "primary": {
+          "heading": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "LogoCloud": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "SponsorGrid": {
+      "default": {
+        "primary": {}
+      }
+    }
+  },
+  "_cts": {
+    "page": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
+    "navigation": {},
+    "settings": {}
+  }
+}

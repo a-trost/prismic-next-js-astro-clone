@@ -1,0 +1,57 @@
+{
+  "id": "sponsor_grid",
+  "type": "SharedSlice",
+  "name": "SponsorGrid",
+  "description": "SponsorGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "SponsorGrid",
+      "primary": {
+        "topCopy": {
+          "type": "Text",
+          "config": {
+            "label": "Top Copy",
+            "placeholder": ""
+          }
+        },
+        "bottomCopy": {
+          "type": "Text",
+          "config": {
+            "label": "Bottom Copy",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "sponsorLink": {
+          "type": "Link",
+          "config": {
+            "label": "Sponsor Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "optionalText": {
+          "type": "Text",
+          "config": {
+            "label": "Optional Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "slices": {
+    "components": {
+      "hero": {
+        "library": "slices",
+        "id": "hero",
+        "name": "Hero",
+        "description": "Hero",
+        "model": {
+          "id": "hero",
+          "type": "SharedSlice",
+          "name": "Hero",
+          "description": "Hero",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Hero",
+              "primary": {
+                "eyebrowBadge": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Eyebrow Badge Text",
+                    "placeholder": ""
+                  }
+                },
+                "eyebrowURL": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Eyebrow URL",
+                    "placeholder": "",
+                    "select": null
+                  }
+                },
+                "eyebrowSecondaryText": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Eyebrow Secondary Text",
+                    "placeholder": ""
+                  }
+                },
+                "heading": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Heading",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "heading1,heading2"
+                  }
+                },
+                "body": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Body",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "buttonText": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Button Text",
+                    "placeholder": ""
+                  }
+                },
+                "buttonLink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Button Link",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "eyebrowBadge": "simplest",
+              "eyebrowURL": {
+                "link_type": "Web",
+                "url": "http://google.com"
+              },
+              "eyebrowSecondaryText": "glass",
+              "heading": [
+                {
+                  "type": "heading1",
+                  "text": "Shells",
+                  "spans": []
+                }
+              ],
+              "body": [
+                {
+                  "type": "paragraph",
+                  "text": "Exercitation sunt amet enim nisi laborum mollit nisi proident consectetur veniam sunt incididunt cillum irure. Proident ullamco do anim. Veniam veniam Lorem aute non do qui minim minim nisi velit.",
+                  "spans": []
+                }
+              ],
+              "buttonText": "poor",
+              "buttonLink": {
+                "link_type": "Web",
+                "url": "https://slicemachine.dev"
+              }
+            },
+            "slice_type": "hero"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/mnt/c/Users/alexr/repos/james-q-quick-astro-rebuild/slices/Hero/default/preview.png",
+            "width": 1512,
+            "height": 608
+          }
+        }
+      },
+      "logo_cloud": {
+        "library": "slices",
+        "id": "logo_cloud",
+        "name": "LogoCloud",
+        "description": "LogoCloud",
+        "model": {
+          "id": "logo_cloud",
+          "type": "SharedSlice",
+          "name": "LogoCloud",
+          "description": "LogoCloud",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "LogoCloud",
+              "primary": {
+                "heading": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Heading",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "companyLogo": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Company Logo",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "companyLogo": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636"
+                }
+              }
+            ],
+            "primary": {
+              "heading": "then"
+            },
+            "slice_type": "logo_cloud"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "sponsor_grid": {
+        "library": "slices",
+        "id": "sponsor_grid",
+        "name": "SponsorGrid",
+        "description": "SponsorGrid",
+        "model": {
+          "id": "sponsor_grid",
+          "type": "SharedSlice",
+          "name": "SponsorGrid",
+          "description": "SponsorGrid",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "SponsorGrid",
+              "primary": {
+                "topCopy": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Top Copy",
+                    "placeholder": ""
+                  }
+                },
+                "bottomCopy": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Bottom Copy",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {
+                "sponsorLink": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Sponsor Link",
+                    "placeholder": "",
+                    "select": null
+                  }
+                },
+                "logo": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Logo",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "optionalText": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Optional Text",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "sponsorLink": {
+                  "link_type": "Web",
+                  "url": "http://google.com"
+                },
+                "logo": {
+                  "dimensions": {
+                    "width": 900,
+                    "height": 500
+                  },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a"
+                },
+                "optionalText": "water"
+              }
+            ],
+            "primary": {
+              "topCopy": "his",
+              "bottomCopy": "use"
+            },
+            "slice_type": "sponsor_grid"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      }
+    }
+  }
+}
