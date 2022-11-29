@@ -1,30 +1,234 @@
-import { PrismicLink, PrismicText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-
-import { Bounded } from "./Bounded";
 
 export const Header = ({ navigation, settings }) => {
   return (
-    <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
-        <PrismicLink href="/" className="text-xl font-semibold tracking-tight">
-          <PrismicText field={settings.data.siteTitle} />
-        </PrismicLink>
-        <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={prismicH.asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
+    <header id="navheader" className="fixed top-0 left-0 right-0 z-20">
+      <div className="bg-neutral-900 py-4 text-neutral-400">
+        <nav
+          className="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6"
+          aria-label="Global"
+        >
+          <div className="flex flex-1 flex-col items-center gap-y-6 sm:flex-row">
+            <div className="-m-2 flex w-full items-center justify-between md:w-auto">
+              <a
+                href="/"
+                className="flex gap-x-1 text-xl font-semibold text-neutral-50"
+                id="navlogo"
               >
-                <PrismicLink field={item.link}>
-                  <PrismicText field={item.label} />
+                <svg
+                  fill="none"
+                  viewBox="0 0 2712 894"
+                  height="32"
+                  aria-hidden="true"
+                  className="-mb-1"
+                >
+                  <path
+                    fill="#fff"
+                    fill-rule="evenodd"
+                    d="M445.432 22.983c7.29 9.05 11.007 21.26 18.441 45.682L626.28 602.176a675.845 675.845 0 0 0-194.166-65.737L326.37 179.099a13.762 13.762 0 0 0-26.407.041L195.5 536.259A675.814 675.814 0 0 0 .459 602.095L163.664 68.541c7.457-24.38 11.186-36.57 18.475-45.602A60.008 60.008 0 0 1 206.453 4.95C217.223.622 229.97.622 255.465.622h116.569c25.528 0 38.292 0 49.072 4.338a59.994 59.994 0 0 1 24.326 18.023Z"
+                    clip-rule="evenodd"
+                  ></path>
+                  <path
+                    fill="#FF5D01"
+                    fill-rule="evenodd"
+                    d="M464.866 627.566c-26.773 22.894-80.211 38.507-141.766 38.507-75.549 0-138.872-23.52-155.675-55.152-6.007 18.129-7.354 38.877-7.354 52.131 0 0-3.957 65.082 41.309 110.349 0-23.505 19.054-42.559 42.558-42.559 40.287 0 40.242 35.148 40.205 63.664l-.002 2.545c0 43.282 26.453 80.385 64.074 96.024-5.619-11.557-8.771-24.535-8.771-38.25 0-41.28 24.234-56.65 52.4-74.514 22.41-14.213 47.31-30.004 64.47-61.682 8.954-16.528 14.038-35.459 14.038-55.577 0-12.372-1.923-24.295-5.486-35.486Z"
+                    clip-rule="evenodd"
+                  ></path>
+                  <path
+                    fill="#fff"
+                    d="M999.147 593.833c67.933 0 118.883-24.168 139.783-65.317 0 19.595 1.3 39.844 4.57 55.52h111.69c-5.22-22.863-7.84-54.216-7.84-95.365v-100.59c0-95.364-56.17-140.433-180.93-140.433-109.076 0-182.232 45.069-190.724 118.879h116.266c3.919-32.006 30.698-49.642 74.458-49.642 43.11 0 67.28 17.636 67.28 54.215v9.796l-118.22 10.451c-57.483 5.88-90.142 15.676-113.004 31.353-24.167 16.328-36.578 41.151-36.578 71.849 0 61.399 50.949 99.284 133.249 99.284Zm43.113-67.931c-37.89 0-60.749-15.022-60.749-39.19 0-24.82 18.939-37.885 66.629-43.763l87.52-9.144V453.4c0 43.763-37.88 72.502-93.4 72.502ZM1490.77 593.833c113.65 0 171.79-42.456 171.79-111.04 0-56.827-32.66-88.18-111.69-98.631l-98.64-11.103c-28.08-3.921-39.84-11.106-39.84-26.782 0-18.941 18.94-27.433 62.05-27.433 59.44 0 100.59 13.717 133.91 40.498l52.9-52.908c-36.58-37.884-99.93-58.786-178.32-58.786-110.38 0-171.78 39.19-171.78 105.161 0 57.48 37.88 89.486 116.26 99.936l88.84 10.451c35.27 4.573 45.72 11.106 45.72 28.087 0 19.597-19.6 30.048-65.32 30.048-67.93 0-113.65-18.29-144.35-52.255l-60.1 49.641c39.85 49.643 107.78 75.116 198.57 75.116ZM1754.78 331.255v137.821c0 80.994 45.72 122.145 143.7 122.145 30.05 0 53.56-3.266 75.77-9.798v-84.915c-11.76 2.614-26.13 5.226-45.07 5.226-41.15 0-61.4-18.288-61.4-56.826V331.255h107.12v-73.81h-107.12V137.914l-113 41.803v77.728h-73.16v73.81h73.16ZM2137.13 257.445h-103.2v326.591h113V461.892c0-35.274 7.84-67.279 29.4-87.528 16.98-15.677 41.15-24.166 75.11-24.166 12.41 0 22.21 1.304 33.31 2.611V250.26c-7.18-1.306-12.41-1.306-21.55-1.306-64.67 0-108.43 37.231-126.07 97.978v-89.487ZM2508.05 593.833c119.54 0 203.8-63.358 203.8-173.745 0-109.735-84.26-172.44-203.8-172.44-120.18 0-204.44 62.705-204.44 172.44 0 110.387 84.26 173.745 204.44 173.745Zm0-75.116c-54.86 0-89.48-35.271-89.48-98.629 0-63.36 34.62-97.325 89.48-97.325 54.22 0 88.84 33.965 88.84 97.325 0 63.358-34.62 98.629-88.84 98.629Z"
+                  ></path>
+                </svg>
+                <span className="sr-only">Astro</span>
+              </a>
+              <div className="-mr-2 flex items-center sm:-mr-6 md:hidden">
+                <button
+                  type="button"
+                  id="menubtn"
+                  className="focus-ring-inset  inline-flex items-center justify-center rounded-md p-2 hover:bg-neutral-600 hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-50"
+                  aria-expanded="false"
+                >
+                  <span className="sr-only">Open main menu</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    width="24"
+                    height="24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              id="menu"
+              className="flex flex-col gap-x-8 gap-y-4 text-center sm:ml-10 sm:flex-row sm:pb-0 sm:text-left"
+            >
+              {navigation.data.links.map((link, i) => (
+                <PrismicLink
+                  field={link.link}
+                  className="text-base text-neutral-50 hover:text-neutral-300"
+                  key={i}
+                >
+                  <PrismicRichText
+                    field={link.label}
+                    className="text-base text-neutral-50 hover:text-neutral-300"
+                  />
                 </PrismicLink>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+
+            <div
+              id="mobilesocial"
+              className="flex items-center gap-x-3 pb-4 sm:hidden"
+            >
+              <a
+                className="ml-3 flex items-center no-underline"
+                href="https://github.com/withastro/astro"
+                title="Go to Astro's GitHub repo"
+              >
+                <div className="item-center  hidden sm:flex">
+                  <div className="flex h-6 items-center rounded-l border border-r-0 border-primary-500 bg-primary-900 px-2 text-[13px]	font-semibold leading-3 text-orange-100">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      className="mr-1 block h-4 w-4"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    22.9K
+                  </div>
+                  <div className="inline-block w-[18px] overflow-hidden">
+                    <div className="h-6 w-[17px] origin-top-left rotate-45 transform border border-l-0 border-primary-500 bg-primary-900"></div>
+                  </div>
+                </div>
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="h-7 w-7 hover:text-neutral-500"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="/chat">
+                <span className="sr-only">
+                  Join the Astro community on Discord
+                </span>
+                <svg
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  className="hover:text-neutral-500"
+                  width="28"
+                  height="28"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M26.964 0c1.875 0 3.385 1.516 3.474 3.302V32l-3.568-3.031-1.958-1.781-2.141-1.865.891 2.938H4.948c-1.87 0-3.385-1.417-3.385-3.302V3.308c0-1.786 1.516-3.302 3.391-3.302h22zm-8.157 7.578h-.042l-.271.266c2.766.802 4.104 2.052 4.104 2.052-1.781-.891-3.391-1.339-4.995-1.521-1.156-.177-2.318-.083-3.297 0h-.271c-.625 0-1.958.271-3.745.984-.62.271-.979.448-.979.448s1.333-1.339 4.281-2.052l-.182-.177s-2.229-.089-4.635 1.693c0 0-2.406 4.193-2.406 9.359 0 0 1.333 2.318 4.99 2.406 0 0 .536-.708 1.073-1.333-2.052-.625-2.854-1.875-2.854-1.875s.182.089.448.266h.078c.042 0 .063.021.083.042v.01c.021.021.042.036.078.036.443.182.88.359 1.24.536.625.266 1.422.536 2.401.714 1.24.182 2.661.266 4.281 0 .797-.182 1.599-.354 2.401-.714.516-.266 1.156-.531 1.859-.984 0 0-.797 1.25-2.938 1.875.438.62 1.057 1.333 1.057 1.333 3.661-.083 5.083-2.401 5.161-2.302 0-5.161-2.422-9.359-2.422-9.359-2.177-1.62-4.219-1.682-4.578-1.682l.073-.026zm.224 5.886c.938 0 1.693.797 1.693 1.776 0 .99-.76 1.786-1.693 1.786-.938 0-1.693-.797-1.693-1.776 0-.99.76-1.786 1.693-1.786zm-6.057 0c.932 0 1.688.797 1.688 1.776 0 .99-.76 1.786-1.693 1.786-.938 0-1.698-.797-1.698-1.776 0-.99.76-1.786 1.698-1.786z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="https://twitter.com/astrodotbuild">
+                <span className="sr-only">Follow Astro on Twitter</span>
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  className="hover:text-neutral-500"
+                  width="28"
+                  height="28"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="ml-6 hidden items-center gap-x-3 pl-1 md:flex">
+            <a
+              className="ml-3 flex items-center no-underline"
+              href="https://github.com/withastro/astro"
+              title="Go to Astro's GitHub repo"
+            >
+              <div className="item-center  hidden sm:flex">
+                <div className="flex h-6 items-center rounded-l border border-r-0 border-primary-500 bg-primary-900 px-2 text-[13px]	font-semibold leading-3 text-orange-100">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    className="mr-1 block h-4 w-4"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                  22.9K
+                </div>
+                <div className="inline-block w-[18px] overflow-hidden">
+                  <div className="h-6 w-[17px] origin-top-left rotate-45 transform border border-l-0 border-primary-500 bg-primary-900"></div>
+                </div>
+              </div>
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-7 w-7 hover:text-neutral-500"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
+                ></path>
+              </svg>
+            </a>
+            <a href="/chat" title="Join the Astro community on Discord">
+              <span className="sr-only">
+                Join the Astro community on Discord
+              </span>
+              <svg
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                className="hover:text-neutral-500"
+                width="28"
+                height="28"
+              >
+                <path
+                  fill="currentColor"
+                  d="M26.964 0c1.875 0 3.385 1.516 3.474 3.302V32l-3.568-3.031-1.958-1.781-2.141-1.865.891 2.938H4.948c-1.87 0-3.385-1.417-3.385-3.302V3.308c0-1.786 1.516-3.302 3.391-3.302h22zm-8.157 7.578h-.042l-.271.266c2.766.802 4.104 2.052 4.104 2.052-1.781-.891-3.391-1.339-4.995-1.521-1.156-.177-2.318-.083-3.297 0h-.271c-.625 0-1.958.271-3.745.984-.62.271-.979.448-.979.448s1.333-1.339 4.281-2.052l-.182-.177s-2.229-.089-4.635 1.693c0 0-2.406 4.193-2.406 9.359 0 0 1.333 2.318 4.99 2.406 0 0 .536-.708 1.073-1.333-2.052-.625-2.854-1.875-2.854-1.875s.182.089.448.266h.078c.042 0 .063.021.083.042v.01c.021.021.042.036.078.036.443.182.88.359 1.24.536.625.266 1.422.536 2.401.714 1.24.182 2.661.266 4.281 0 .797-.182 1.599-.354 2.401-.714.516-.266 1.156-.531 1.859-.984 0 0-.797 1.25-2.938 1.875.438.62 1.057 1.333 1.057 1.333 3.661-.083 5.083-2.401 5.161-2.302 0-5.161-2.422-9.359-2.422-9.359-2.177-1.62-4.219-1.682-4.578-1.682l.073-.026zm.224 5.886c.938 0 1.693.797 1.693 1.776 0 .99-.76 1.786-1.693 1.786-.938 0-1.693-.797-1.693-1.776 0-.99.76-1.786 1.693-1.786zm-6.057 0c.932 0 1.688.797 1.688 1.776 0 .99-.76 1.786-1.693 1.786-.938 0-1.698-.797-1.698-1.776 0-.99.76-1.786 1.698-1.786z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/astrodotbuild"
+              title="Follow Astro on Twitter"
+            >
+              <span className="sr-only">Follow Astro on Twitter</span>
+              <svg
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                className="hover:text-neutral-500"
+                width="28"
+                height="28"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </nav>
       </div>
-    </Bounded>
+    </header>
   );
 };

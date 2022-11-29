@@ -9,21 +9,21 @@ import "../styles/globals.css";
 
 const richTextComponents = {
   heading1: ({ children }) => (
-    <Heading as="h1" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-neutral-50 sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
       {children}
-    </Heading>
+    </h1>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="md" className="mb-7 mt-12 first:mt-0 last:mb-0">
+    <h2 className="mt-2 mb-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
       {children}
-    </Heading>
+    </h2>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" size="sm" className="mb-7 mt-12 first:mt-0 last:mb-0">
-      {children}
-    </Heading>
+    <h3 className="mb-7 mt-12 first:mt-0 last:mb-0">{children}</h3>
   ),
-  paragraph: ({ children }) => <p className="mb-7 last:mb-0">{children}</p>,
+  paragraph: ({ children }) => (
+    <p className="mb-7 max-w-lg text-base last:mb-0">{children}</p>
+  ),
   oList: ({ children }) => (
     <ol className="mb-7 pl-4 last:mb-0 md:pl-6">{children}</ol>
   ),

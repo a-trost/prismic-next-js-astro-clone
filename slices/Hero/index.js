@@ -1,110 +1,93 @@
-import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
-
-import { Bounded } from "../../components/Bounded";
-import { Heading } from "../../components/Heading";
-
-/** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
-const components = {
-  heading1: ({ children }) => (
-    <Heading as="h2" size="xl" className="mb-4 mt-12 first:mt-0 last:mb-0">
-      {children}
-    </Heading>
-  ),
-};
 
 const Hero = ({ slice }) => {
-  const backgroundImage = slice.primary.backgroundImage;
-
   return (
     <section className="relative overflow-hidden pt-24 pb-8">
       <div className=" pointer-events-none absolute inset-0 -z-50 border-t-[3.5rem] border-slate-900 bg-purple-800 bg-gradient-to-b from-slate-900 to-purple-800 bg-no-repeat">
         <div className="starfield  absolute inset-0"></div>
       </div>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mx-auto justify-center lg:grid lg:grid-cols-12 lg:gap-16">
           <div className="relative z-10 col-span-6 mb-8 px-4 sm:mb-16 sm:px-6 sm:text-center lg:mb-0 lg:flex lg:px-0 lg:text-left">
             <div className="lg:py-24">
-              <a
-                href="/blog/astro-1"
-                className="xs:mb-0 xs:flex-nowrap xs:border border-primary-100/30 xs:p-1 xs:pr-2 -mx-3 mb-4 inline-flex flex-wrap items-center gap-y-2 gap-x-2 rounded-full text-neutral-50 hover:border-opacity-50 hover:text-white sm:mx-0 sm:text-base lg:text-sm xl:text-base"
+              <PrismicLink
+                field={slice.primary.eyebrowURL}
+                className="-mx-3 mb-4 inline-flex flex-wrap items-center gap-y-2 gap-x-2 rounded-full border-primary-100/30 text-neutral-50 hover:border-opacity-50 hover:text-white xs:mb-0 xs:flex-nowrap xs:border xs:p-1 xs:pr-2 sm:mx-0 sm:text-base lg:text-sm xl:text-base"
               >
-                <span className="bg-primary-600 rounded-full px-3 py-0.5 text-xs font-semibold uppercase leading-5 tracking-wide text-neutral-50">
-                  Astro 1.0 is here
-                </span>
-                <span className="xs:border-0 border-primary-100/30 xs:p-0 inline-flex items-center rounded-full border py-0.5 pl-3 pr-1.5">
-                  <span className="text-sm">Read the launch post</span>
-                  <svg
-                    aria-hidden="true"
-                    width="20"
-                    height="20"
-            
-                  ></svg>
-                </span>
-              </a>
-              <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-neutral-50 sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                <span className="block"> Build faster websites.</span>
-              </h1>
-              <p className="mt-3 max-w-lg text-lg text-neutral-200 sm:mx-auto sm:mt-5 sm:text-2xl lg:mx-0">
-                Pull content from anywhere and serve it fast with Astro's
-                next-gen island architecture.
-              </p>
+                <div>
+                  <span className="rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold uppercase leading-5 tracking-wide text-neutral-50">
+                    <span>{slice.primary.eyebrowBadge}</span>
+                  </span>
+                  <span className="ml-2 inline-flex items-center rounded-full border border-primary-100/30 py-0.5 pl-3 pr-1.5 xs:border-0 xs:p-0">
+                    <span className="text-sm">
+                      {slice.primary.eyebrowSecondaryText}
+                    </span>
+                    <svg aria-hidden="true" width="20" height="20"></svg>
+                  </span>
+                </div>
+              </PrismicLink>
+
+              <PrismicRichText
+                field={slice.primary.heading}
+                components={{
+                  heading1: ({ children }) => (
+                    <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-neutral-50 sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                      {children}
+                    </h1>
+                  ),
+                }}
+              />
+
+              <div className="mt-3 max-w-lg text-lg text-neutral-200 sm:mx-auto sm:mt-5 sm:text-2xl lg:mx-0">
+                <PrismicRichText field={slice.primary.body} />
+              </div>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div>
                   <a
                     href="https://docs.astro.build/en/getting-started/"
-                    className="text-primary-700 bg-primary-100 hover:bg-primary-200 flex w-full items-center justify-center rounded-md border border-transparent px-4 py-3 text-base font-medium no-underline md:text-lg"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-100 px-4 py-3 text-base font-medium text-primary-700 no-underline hover:bg-primary-200 md:text-lg"
                   >
                     Get Started
                   </a>
                 </div>
                 <div className="relative mt-3 sm:mt-0 sm:ml-3">
-                  <div className="font-mono shadow-primary-700 flex items-center justify-center rounded-md border border-transparent bg-neutral-900 py-3 pl-3 pr-4 text-neutral-50 md:text-lg">
+                  <div className="flex items-center justify-center rounded-md border border-transparent bg-neutral-900 py-3 pl-3 pr-4 font-mono text-neutral-50 shadow-primary-700 md:text-lg">
                     <svg
                       aria-hidden="true"
                       width="22"
                       height="22"
-                      className="text-secondary-500 mr-2"
-                  
+                      className="mr-2 text-secondary-500"
                     ></svg>
                     <span id="heroCommand" className="select-all">
                       npm create astro@latest
                     </span>
-                    
-                      <button
-                        aria-label="Copy to clipboard"
-                        className="ml-4"
+
+                    <button aria-label="Copy to clipboard" className="ml-4">
+                      <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        className=""
+                        width="22"
+                        height="22"
                       >
-                        <svg
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                          className=""
-                          width="22"
-                          height="22"
-                  
+                        <g
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeWidth="2"
                         >
-                          <g
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeWidth="2"
-                          >
-                            <path
-                              strokeLinejoin="round"
-                              d="M15.5 4H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2.5"
-                            ></path>
-                            <path
-                              strokeLinejoin="round"
-                              d="M8.621 3.515A2 2 0 0 1 10.561 2h2.877a2 2 0 0 1 1.94 1.515L16 6H8l.621-2.485z"
-                            ></path>
-                            <path d="M9 12h6M9 16h6"></path>
-                          </g>
-                        </svg>
-                      </button>
-         
-                 
+                          <path
+                            strokeLinejoin="round"
+                            d="M15.5 4H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2.5"
+                          ></path>
+                          <path
+                            strokeLinejoin="round"
+                            d="M8.621 3.515A2 2 0 0 1 10.561 2h2.877a2 2 0 0 1 1.94 1.515L16 6H8l.621-2.485z"
+                          ></path>
+                          <path d="M9 12h6M9 16h6"></path>
+                        </g>
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -131,14 +114,11 @@ const Hero = ({ slice }) => {
 
                 <h2 className=" sr-only">Testimonial</h2>
 
-                <div className="card to-primary-100 shadow-primary-700  relative flex flex-col bg-gradient-to-br from-white via-white px-6 pt-4 pb-8 sm:py-10 sm:px-12">
-                  <div
-                    className=" text-2xl font-light text-neutral-700 sm:text-4xl sm:font-extralight"
-                    style={{ "lineHeight": "1.8rem" }}
-                  >
+                <div className="card relative flex  flex-col bg-gradient-to-br from-white via-white to-primary-100 px-6 pt-4 pb-8 shadow-primary-700 sm:py-10 sm:px-12">
+                  <div className=" text-2xl font-light text-neutral-700 sm:text-4xl sm:font-extralight">
                     Rebuilt my blog with Astro
                     <br className="" /> out of curiosity…{" "}
-                    <mark className=" -ml-2 mt-2 md:ml-0">
+                    <mark className=" -ml-2 mt-2 rounded-md bg-gradient-to-r from-yellow-200 to-yellow-300 font-semibold md:ml-0">
                       holy
                       <span className="dense js-bleep ">
                         <span className="">★</span>
@@ -183,7 +163,7 @@ const Hero = ({ slice }) => {
                       </div>
                       <div
                         id="payload-title-2"
-                        className="text-accent-900  col-span-2 mr-2 py-2 text-right font-bold"
+                        className="col-span-2  mr-2 py-2 text-right font-bold text-accent-900"
                       >
                         <h3 className="">Astro</h3>
                       </div>

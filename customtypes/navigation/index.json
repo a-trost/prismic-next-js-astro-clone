@@ -16,7 +16,7 @@
                 "label": "Label",
                 "placeholder": "Optional - Label for the link",
                 "allowTargetBlank": false,
-                "single": "heading3"
+                "single": "paragraph"
               }
             },
             "link": {

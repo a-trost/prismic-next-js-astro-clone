@@ -44,6 +44,9 @@
             },
             "sponsor_grid": {
               "type": "SharedSlice"
+            },
+            "content_showcase": {
+              "type": "SharedSlice"
             }
           }
         }

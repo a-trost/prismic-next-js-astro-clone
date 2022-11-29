@@ -19,7 +19,36 @@
     },
     "SponsorGrid": {
       "default": {
-        "primary": {}
+        "primary": {
+          "topCopy": {
+            "content": "Plus, our amazing community of individual sponsors and contributors. Thank you!"
+          },
+          "bottomCopy": {
+            "content": "Plus, our amazing community of individual sponsors and contributors. Thank you!"
+          }
+        },
+        "items": {}
+      }
+    },
+    "ContentShowcase": {
+      "default": {
+        "primary": {
+          "heading": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "body": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "eyebrow": {
+            "content": "Designed for Content"
+          }
+        }
       }
     }
   },
@@ -32,7 +61,16 @@
         }
       }
     },
-    "navigation": {},
+    "navigation": {
+      "links": {
+        "label": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    },
     "settings": {}
   }
 }
