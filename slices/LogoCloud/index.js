@@ -1,5 +1,4 @@
 import React from "react";
-import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
@@ -19,7 +18,7 @@ const LogoCloud = ({ slice }) => {
             <PrismicNextImage
               field={item.companyLogo}
               key={i}
-              className="w-24 "
+              className="w-24"
             />
           ))}
         </div>
