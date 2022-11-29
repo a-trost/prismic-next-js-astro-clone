@@ -43,12 +43,12 @@ const Hero = ({ slice }) => {
               </div>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div>
-                  <a
-                    href="https://docs.astro.build/en/getting-started/"
+                  <PrismicLink
+                    field={slice.primary.buttonLink}
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-primary-100 px-4 py-3 text-base font-medium text-primary-700 no-underline hover:bg-primary-200 md:text-lg"
                   >
-                    Get Started
-                  </a>
+                    {slice.primary.buttonText}
+                  </PrismicLink>
                 </div>
                 <div className="relative mt-3 sm:mt-0 sm:ml-3">
                   <div className="flex items-center justify-center rounded-md border border-transparent bg-neutral-900 py-3 pl-3 pr-4 font-mono text-neutral-50 shadow-primary-700 md:text-lg">
@@ -208,17 +208,14 @@ const Hero = ({ slice }) => {
                       ></path>
                     </svg>
                   </div>
-                  <a
-                    className=" group"
-                    href="https://twitter.com/t3dotgg/status/1437195415439360003"
-                  >
+                  <span className=" group">
                     <span className=" absolute bottom-2 right-3 mt-4 ml-auto text-xs text-neutral-600 no-underline sm:bottom-4 sm:right-6">
                       Source:{" "}
                       <span className=" cursor-pointer underline outline-offset-2 group-focus:outline">
                         Theo, CEO @ Ping Labs
                       </span>
                     </span>
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>

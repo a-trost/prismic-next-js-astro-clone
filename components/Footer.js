@@ -9,52 +9,52 @@ export const Footer = ({ navigation, settings }) => {
           aria-label="Footer"
         >
           <div className="px-5 py-2 text-center">
-            <a
+            <span
               href="https://docs.astro.build/en/concepts/why-astro/"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
               Why Astro?
-            </a>
+            </span>
           </div>
           <div className="px-5 py-2 text-center">
-            <a
+            <span
               href="https://docs.astro.build/"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
               Documentation
-            </a>
+            </span>
           </div>
           <div className="px-5 py-2 text-center">
-            <a
+            <span
               href="/blog"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
               Blog
-            </a>
+            </span>
           </div>
           <div className="px-5 py-2 text-center">
-            <a
+            <span
               href="/press"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
               Press
-            </a>
+            </span>
           </div>
           <div className="px-5 py-2 text-center">
-            <a
+            <span
               href="/privacy"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
               Privacy Policy
-            </a>
+            </span>
           </div>
           <div className="px-5 py-2 text-center">
-            <a
+            <span
               href="https://astro.build/company/"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
               The Astro Technology Company (We're Hiring!)
-            </a>
+            </span>
           </div>
         </nav>
       </div>
