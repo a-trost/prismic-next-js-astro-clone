@@ -53,7 +53,8 @@ export const Footer = ({ navigation, settings }) => {
               href="https://astro.build/company/"
               className="text-base text-neutral-300 hover:text-neutral-100 hover:underline"
             >
-              The Astro Technology Company (We're Hiring!)
+              Site design and content stolen from the wonderful Astro Technology
+              Company
             </span>
           </div>
         </nav>
